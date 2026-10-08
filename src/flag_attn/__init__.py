@@ -53,6 +53,7 @@ _OPERATOR_EXPORTS = {
     ),
     "chunk_gdn2": ("flag_attn.gdn2", "chunk_gdn2"),
     "chunk_kda": ("flag_attn.FLA.chunk_kda", "chunk_kda_fwd_infer"),
+    "parallel_wall_attn": ("flag_attn.FLA.wall_attn", "parallel_wall_attn"),
     "InfLLMV2Config": (
         "flag_attn.infllmv2",
         "InfLLMV2Config",
@@ -119,4 +120,5 @@ __all__ = [
     "minimax_m3_index_topk",
     "minimax_m3_sparse_attn",
     "minimax_m3_sparse_attn_decode",
+    "parallel_wall_attn",
 ]
