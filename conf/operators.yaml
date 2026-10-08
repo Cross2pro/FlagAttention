@@ -250,6 +250,14 @@ ops:
       - tests/flag_attn/test_flash_attention.py::test_splitkv_single_split_preserves_dtype
       - tests/flag_attn/test_flash_attention.py::test_splitkv_independent_kv_strides
     benchmark: benchmark/flash_decoding_benchmark.py
+  - id: inkling_fa4_rel_attention
+    description: Triton and Hopper TLE paged relative attention with relative-position logits.
+    for:
+      - inkling_fa4_rel_attention
+    labels:
+      - KernelGen
+    kind:
+      - NeuralNetwork
   - id: minimax_m3_index_topk
     description: Select MiniMax M3 prefill sparse-attention top-k blocks.
     for:

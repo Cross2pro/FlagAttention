@@ -15,13 +15,16 @@
 [project]
 name = "flag_attn"
 dynamic = ["version"]
+
 authors = [
-    {name = "Chen Feiyu", email = "iclementine@outlook.com"},
+    { name = "Chen Feiyu", email = "iclementine@outlook.com" },
 ]
+
 description = "A collection of memory efficient attention operators implemented in triton language."
-readme = {file= "README.md", content-type="text/markdown"}
+readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
-license = {text = "LICENSE.txt"}
+license = { file = "LICENSE" }
+
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3",
@@ -34,6 +37,7 @@ dependencies = []
 triton = [
     "triton>=2.2.0",
 ]
+
 test = [
     "pytest>=7.1.0",
     "PyYAML>=6.0",
@@ -44,7 +48,6 @@ test = [
 [project.urls]
 homepage = "https://github.com/FlagOpen/FlagAttention"
 
-
 [build-system]
 requires = ["setuptools>=60", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
@@ -54,17 +57,20 @@ version_file = "src/flag_attn/_version.py"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["flag_attn", "flag_attn.*"]
+include = [
+    "flag_attn",
+    "flag_attn.*",
+    "inkling_fa4",
+    "inkling_fa4.*",
+]
 namespaces = false
 
-# helps for setting up pytest in pyprojects
-# https://docs.pytest.org/en/7.3.x/reference/customize.html#rootdir
-# https://docs.pytest.org/en/7.3.x/reference/reference.html#confval-pythonpath
 [tool.pytest.ini_options]
 addopts = "--import-mode=importlib"
 testpaths = [
     "tests",
 ]
+
 pythonpath = [
     ".",
     "src",
@@ -93,6 +99,13 @@ markers = [
     "parallel_nsa_compression: native sparse attention compression",
     "parallel_wall_attn: Wall-Attention correctness and performance tests",
     "sage_attention: SageAttention tests and benchmarks",
+]
+
+markers = [
+    "gpu: requires CUDA GPU",
+    "performance: performance benchmark",
+    "benchmark: benchmark entry point",
+    "inkling_fa4_rel_attention: Inkling FA4 relative-attention operator tests",
 ]
 
 [tool.ruff]
